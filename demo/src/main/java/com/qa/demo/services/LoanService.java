@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.qa.demo.persistence.domain.Loan;
-import com.qa.demo.persistence.domain.User;
 import com.qa.demo.persistence.repos.LoanRepo;
 
 
@@ -23,22 +22,32 @@ public class LoanService {
 
     //Create a loan
     public Loan createLoan(Loan loan){
-       
+        loan.setStartDate(LocalDate.now());
+        loan.setExpiryDate(LocalDate.now().plusDays(21));
         return this.repo.save(loan);
     }
 
-    //Get current loans for a Library user
-    public List<Loan> getLoanByLibId(Long libId){
+    //Get all loans
+    public List<Loan> findAllLoans(){
         
+        return this.repo.findAll();
+    }
+
+    // Get all loans for a library user
+    public List<Loan> findByLibId(Long libId){
         return this.repo.findBylibId(libId);
     }
 
+
     //Update - when a book is returned the expiry date is updated to today
-    public Loan returnLoan(Long id, Loan newLoan){
+    public Loan returnLoan(Long loanId, Loan newLoan){
         
-        Optional<Loan> existingOptional = this.repo.findById(id);
+        Optional<Loan> existingOptional = this.repo.findById(loanId);
         Loan existing = existingOptional.get();
         existing.setExpiryDate(LocalDate.now());
+        existing.setBookId(newLoan.getBookId());
+        existing.setLibId(newLoan.getLibId());
+        //existing.setStartDate(newLoan.getStartDate());
         return this.repo.save(existing);
 
     }

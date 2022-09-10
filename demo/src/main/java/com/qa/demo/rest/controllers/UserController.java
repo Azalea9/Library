@@ -36,6 +36,12 @@ public class UserController {
         return this.userService.getAllUsers();
     }
 
+    // get a user by libid
+    @GetMapping("/getBylibID")
+    public List<User> getBylibID(@PathParam("libId") Long libId){
+        return this.userService.findUserbylibId(libId);
+    }
+
     // Create a new user
     @PostMapping("/create/user")
     public User addUser(@RequestBody User user){

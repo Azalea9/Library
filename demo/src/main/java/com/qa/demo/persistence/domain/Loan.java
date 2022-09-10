@@ -23,10 +23,8 @@ public class Loan {
     @NotNull
     private Long libId;
 
-    @NotNull
     private LocalDate startDate;
     
-    @NotNull
     private LocalDate expiryDate;
 
     public Loan(Long bookId, Long libId) {
@@ -39,6 +37,11 @@ public class Loan {
         this.startDate = LocalDate.now();
         this.expiryDate = returnDate;
     }
+
+    // Empty Construcor
+     public Loan(){
+    }
+
 
     public Long getLoanId() {
         return loanId;

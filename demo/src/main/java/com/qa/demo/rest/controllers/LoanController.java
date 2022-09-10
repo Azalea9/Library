@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.websocket.server.PathParam;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,15 +30,20 @@ public class LoanController {
         return this.loanService.createLoan(loan);
     }
 
-    // fetch back all current loans for a library user
+    // fetch back all loans
     @GetMapping("/find/loans")
-    public List<Loan> getLoanByLibId(@PathParam("libId") Long libId){
-        return this.loanService.getLoanByLibId(libId);
+    public List<Loan> getAllLoans(){
+        return this.loanService.findAllLoans();
     }
-    
+
+    // fetch back all current loans for a library user.
+    @GetMapping("/find/loans/id")
+    public List<Loan> getLoansByLibId(@PathParam("libId") Long libId){
+        return this.loanService.findByLibId(libId);
+    }
     // update an existing book
     @PutMapping("/return/loan")
-    public Loan returnLoan(@PathParam("id") Long id, @RequestBody Loan loan){
-        return this.loanService.returnLoan(id, loan);
+    public Loan returnLoan(@PathParam("loanId") Long loanId, @RequestBody Loan loan){
+        return this.loanService.returnLoan(loanId, loan);
     }
 }
