@@ -23,14 +23,15 @@ public class User {
     private String username;
 
     @NotNull
+    @Size(min = 8, max = 20)
     private String password;
 
-    @NotNull
-   // @Pattern(regexp = "^(.+)@(.+)$")
+    
+    @Pattern(regexp = "^(.+)@(.+)$")
     private String email;
 
     @Max(5)
-    private int numOfBooksAllowed;
+    private int numOfBooksAllowed = 5;
     @Max(5)
     private int numOfBooksOnLoan;
 

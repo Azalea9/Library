@@ -41,14 +41,14 @@ public class LibraryController {
     // find a book by author
     @GetMapping("/find/title")
     public List<Book> findBookByTitle(@PathParam("title") String title){
-        return this.bookService.findBookByTitleContaining(title);
+        return this.bookService.findBookByTitle(title);
     }
 
 
     // find a book by title
     @GetMapping("/find/author")
     public List<Book> findBookByAuthor(@PathParam("authors") String authors){
-        return this.bookService.findBookbyAuthorContaining(authors);
+        return this.bookService.findBookbyAuthor(authors);
     }
     
     // Create a new book

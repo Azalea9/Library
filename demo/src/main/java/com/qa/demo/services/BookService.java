@@ -38,12 +38,12 @@ public class BookService {
     }
 
     //Get a book by title
-    public List<Book> findBookByTitleContaining(String title){
+    public List<Book> findBookByTitle(String title){
         return this.repo.findByTitleContaining(title);
     }
 
     //Get a book by author
-     public List<Book> findBookbyAuthorContaining(String authors){
+     public List<Book> findBookbyAuthor(String authors){
         return this.repo.findByAuthorsContaining(authors);
      }
 
