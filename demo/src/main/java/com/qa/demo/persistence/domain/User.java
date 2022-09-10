@@ -26,7 +26,7 @@ public class User {
     private String password;
 
     @NotNull
-    @Pattern(regexp = "^(.+)@(.+)$")
+   // @Pattern(regexp = "^(.+)@(.+)$")
     private String email;
 
     @Max(5)

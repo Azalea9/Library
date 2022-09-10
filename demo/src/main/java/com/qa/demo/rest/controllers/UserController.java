@@ -22,6 +22,11 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/test")
+    public String getTest(){
+        return "Hello";
+    }
+
     // Get all users
     @GetMapping("/getAll/users/") 
     public List<User> getAllUsers(){
@@ -33,8 +38,6 @@ public class UserController {
     public User addUser(@RequestBody User user){
         return this.userService.addUser(user);
     }
-
-
 
     // Update email address
     //TO DO

@@ -20,7 +20,6 @@ public class LibraryController {
 
     private BookService bookService;
  
-
     public LibraryController(BookService bookService){
         super();
         this.bookService = bookService;
@@ -39,7 +38,7 @@ public class LibraryController {
         return this.bookService.getBookByIsbn(isbn);
     }
 
-    // find a book by title
+    // find a book by author
     @GetMapping("/find/title")
     public List<Book> findBookByTitle(@PathParam("title") String title){
         return this.bookService.findBookByTitleContaining(title);
