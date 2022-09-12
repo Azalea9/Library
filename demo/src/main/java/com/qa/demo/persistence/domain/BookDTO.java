@@ -1,45 +1,20 @@
 package com.qa.demo.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+//https://www.njari.dev/post/spring-dto/
+// Use the above as an example for DTO
 
-
-
-@Entity
-@Table(name = "books")
-public class Book {
+public class BookDTO {
     
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
     private Long bookId;
-
-    @NotNull
-    @Min(13)
-    @Column(name = "isbn")
     private Long isbn;
-
-   @NotNull
     private String title;
 
-    @NotNull
     private String authors;
 
     // Empty Construcor
-    public Book(){
+    public BookDTO(){
         super();
-    }
-
-    // Constructor to create a book
-    public Book(Long isbn, String title, String authors) {
-        this.isbn = isbn;
-        this.title = title;
-        this.authors = authors;
     }
 
     // Getters and Setters for Book
@@ -75,3 +50,4 @@ public class Book {
         this.authors = authors;
     }
 }
+

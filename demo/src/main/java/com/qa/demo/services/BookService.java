@@ -1,6 +1,6 @@
 package com.qa.demo.services;
 
-//import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +12,7 @@ import com.qa.demo.persistence.repos.LibraryRepo;
 @Service
 public class BookService {
 
-    //private List<Book> books = new ArrayList<>();
+
     private LibraryRepo repo;
     
     public BookService(LibraryRepo repo){
