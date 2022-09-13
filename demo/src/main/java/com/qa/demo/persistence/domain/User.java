@@ -42,8 +42,9 @@ public class User {
 
     // Constructor to create a user
 
-    public User(String username, String password, String email) {
-    
+    public User(Long libId, String username, String password, String email) {
+        
+        this.libId = libId;
         this.username = username;
         this.password = password;
         this.email = email;

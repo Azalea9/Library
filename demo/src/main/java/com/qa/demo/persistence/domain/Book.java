@@ -30,17 +30,21 @@ public class Book {
     @NotNull
     private String authors;
 
-    // Empty Construcor
-    public Book(){
-        super();
-    }
+
 
     // Constructor to create a book
-    public Book(Long isbn, String title, String authors) {
+    public Book(Long id, Long isbn, String title, String authors) {
+        super();
+        this.bookId = id;
         this.isbn = isbn;
         this.title = title;
         this.authors = authors;
     }
+
+        // Empty Construcor
+        public Book(){
+            super();
+        }
 
     // Getters and Setters for Book
     public Long getId() {
