@@ -58,6 +58,7 @@ public class UserServiceUnitTests {
     }
 
     @Test
+    // TO DO - figure out why this test is failing
     void updateUserTest(){
         final Long id = 1L;
         final User user = new User(id,"Freddy", "p@55w0rd", "Freddy@mail.com");
@@ -72,7 +73,7 @@ public class UserServiceUnitTests {
 
     }
     @Test
-    void testDelete(){
+    void testDeleteUser(){
         final Long id = 1L;
 
         Mockito.when(this.repo.existsById(id)).thenReturn(false);
