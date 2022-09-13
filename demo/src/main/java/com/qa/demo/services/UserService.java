@@ -29,7 +29,7 @@ public class UserService {
     }
 
     //Get an individual user by libId
-    public List<User> findUserbylibId(Long libId){
+    public User findUserbylibId(Long libId){
         return this.repo.findUserBylibId(libId);
     }
 

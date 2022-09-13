@@ -38,7 +38,7 @@ public class UserController {
 
     // get a user by libid
     @GetMapping("/getBylibID")
-    public List<User> getBylibID(@PathParam("libId") Long libId){
+    public User getBylibID(@PathParam("libId") Long libId){
         return this.userService.findUserbylibId(libId);
     }
 

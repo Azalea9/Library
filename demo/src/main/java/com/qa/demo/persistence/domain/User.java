@@ -42,7 +42,7 @@ public class User {
 
     // Constructor to create a user
 
-    public User(Long libId, String username, String password, String email) {
+    public User(Long libId, String username, String password, String email, int numOfBooksAllowed, int setNumOfBooksOnLoan) {
         
         this.libId = libId;
         this.username = username;

@@ -27,11 +27,11 @@ public class Loan {
     
     private LocalDate expiryDate;
 
-    public Loan(Long bookId, Long libId) {
-        
+    public Loan(Long loanId, Long bookId, Long libId, LocalDate startDate, LocalDate expiryDate) {
+        super();
         // the books are set to return in 21 days
         LocalDate returnDate = LocalDate.now().plusDays(21);
-
+        this.loanId = loanId;
         this.bookId = bookId;
         this.libId = libId;
         this.startDate = LocalDate.now();
@@ -40,6 +40,7 @@ public class Loan {
 
     // Empty Construcor
      public Loan(){
+        super();
     }
 
 
