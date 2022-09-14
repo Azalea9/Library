@@ -1,4 +1,4 @@
-package com.qa.demo;
+package com.qa.demo.services;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.qa.demo.persistence.domain.Book;
 import com.qa.demo.persistence.repos.LibraryRepo;
-import com.qa.demo.services.BookService;
+
 
 @SpringBootTest
 public class BookServiceUnitTest {
@@ -49,7 +49,7 @@ public class BookServiceUnitTest {
     void testFindByIsbn(){
         final Long isbn = 1020304050601L;
         final List<Book> newBook = List.of(new Book(1L,1020304050601L, "The Happy Bunny", "Simon Green"));
-
+        
         Mockito.when(this.repo.findByIsbn(isbn)).thenReturn(newBook);
         Assertions.assertThat(this.service.getBookByIsbn(isbn)).isEqualTo(newBook);
         Mockito.verify(this.repo, Mockito.times(1)).findByIsbn(isbn);

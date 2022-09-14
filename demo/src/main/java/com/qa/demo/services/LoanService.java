@@ -34,7 +34,7 @@ public class LoanService {
     }
 
     // Get all loans for a library user
-    public Loan findByLibId(Long libId){
+    public List<Loan> findByLibId(Long libId){
         return this.repo.findBylibId(libId);
     }
 

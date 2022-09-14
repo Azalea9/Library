@@ -38,7 +38,7 @@ public class LoanController {
 
     // fetch back all current loans for a library user.
     @GetMapping("/find/loans/id")
-    public Loan getLoansByLibId(@PathParam("libId") Long libId){
+    public List<Loan> getLoansByLibId(@PathParam("libId") Long libId){
         return this.loanService.findByLibId(libId);
     }
     // update an existing book

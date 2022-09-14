@@ -1,8 +1,7 @@
-package com.qa.demo;
+package com.qa.demo.services;
 
 import java.util.List;
-
-
+import java.util.Optional;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.qa.demo.persistence.domain.User;
 import com.qa.demo.persistence.repos.UserRepo;
-import com.qa.demo.services.UserService;
+
 
 @SpringBootTest
 public class UserServiceUnitTests {
@@ -54,25 +53,28 @@ public class UserServiceUnitTests {
 
         Assertions.assertThat(users.size()).isGreaterThan(0);
 
-     //   Mockito.verify(this.repo, Mockito.times(1)).findAll();
+     
                     
     }
 
-    // @Test
-    // // TO DO - figure out why this test is failing
-    // void updateUserTest(){
-    //     //final Long id = 1L;
-    //     final User user = new User(1L,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
-    //     Optional<User> optionalUser = Optional.of(user);
+@Test
+ //TO DO - figure out why this test is failing
+   void updateUserTest(){
+        final Long id = 1L;
+        final User user = new User(id,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
+        Optional<User> optionalUser = Optional.of(user);
 
-    //     User updateUser = new User(1L,"Freddy", "p@55w0rd", "Frederic@mail.com",5,0);
+        User updateUser = new User(id,"Freddy", "p@55w0rd", "Frederic@mail.com",5,0);
 
-    //     Mockito.when(this.repo.findById(1L)).thenReturn(optionalUser);
-    //     Mockito.when(this.repo.save(updateUser)).thenReturn(updateUser);
+        Mockito.when(this.repo.findById(id)).thenReturn(optionalUser);
+        Mockito.when(this.repo.save(updateUser)).thenReturn(updateUser);
 
-    //    Assertions.assertThat(this.service.findUserbylibId(libId).isEqualTo(updateUser);
+    //    Assertions.assertThat(this.service.updateEmail(id,updateUser)).isEqualTo(updateUser)
+        Mockito.verify(this.repo, Mockito.times(1)).findById(id);
+        Mockito.verify(this.repo, Mockito.times(1)).save(updateUser);
 
-   // }
+   }
+
     @Test
     void testDeleteUser(){
         final Long id = 1L;

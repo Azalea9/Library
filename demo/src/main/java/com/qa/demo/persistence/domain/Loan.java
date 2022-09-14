@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "loans")
@@ -24,7 +26,6 @@ public class Loan {
     private Long libId;
 
     private LocalDate startDate;
-    
     private LocalDate expiryDate;
 
     public Loan(Long loanId, Long bookId, Long libId, LocalDate startDate, LocalDate expiryDate) {

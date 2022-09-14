@@ -1,4 +1,4 @@
-package com.qa.demo;
+package com.qa.demo.services;
 
 import java.util.List;
 //import java.util.Optional;
@@ -13,7 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.qa.demo.persistence.domain.Loan;
 import com.qa.demo.persistence.repos.LoanRepo;
-import com.qa.demo.services.LoanService;
+
 
 @SpringBootTest
 public class LoanServiceUnitTest {
@@ -25,8 +25,10 @@ public class LoanServiceUnitTest {
 
     @Test
     void testCreateLoan(){
-        Loan newLoan = new Loan(null,24L, 1020L,LocalDate.of(2022,9,13),LocalDate.of(2022,9,24));
-        Loan createdLoan = new Loan(1L,24L, 1020L,LocalDate.of(2022,9,13),LocalDate.of(2022,9,24));
+
+        Loan newLoan = new Loan(null, 12L, 1020L, LocalDate.of(2022,9,13),LocalDate.of(2022,9,24));
+
+        Loan createdLoan = new Loan(1L, 12L, 1020L, LocalDate.of(2022,9,13),LocalDate.of(2022,9,24));
 
         Mockito.when(this.repo.save(newLoan)).thenReturn(createdLoan);
 
@@ -42,7 +44,6 @@ public class LoanServiceUnitTest {
         Mockito.when(this.repo.findAll()).thenReturn(loans);
 
         Assertions.assertThat(loans.size()).isGreaterThan(0);
-
     }
 
     @Test
