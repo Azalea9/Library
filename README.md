@@ -94,41 +94,210 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 #### Book
 ***1. Create a book***
 ***POSTMAN***
+
 <img width="487" text-align:left alt="image" src="https://user-images.githubusercontent.com/91089509/190163487-c999a6e6-e648-48dc-ba0f-ef242527d05e.png">
+
 ***DATABASE***
+
 <img width="442" alt="image" src="https://user-images.githubusercontent.com/91089509/190163882-8db4635f-a457-4d25-8c84-77b966305cf8.png">
 
 ***2. Get all books***
+
 ***POSTMAN***
+
 <img width="416" alt="image" src="https://user-images.githubusercontent.com/91089509/190164188-e851405e-f89e-4848-9a0f-2d91b9a03dee.png">
+
 ***DATABASE***
+
 <img width="448" alt="image" src="https://user-images.githubusercontent.com/91089509/190164295-6aa50de3-4340-4fa1-81a5-7ca80ee9023e.png">
 
 ***3. Get a book by isbn***
+
 ***POSTMAN***
+
 <img width="451" alt="image" src="https://user-images.githubusercontent.com/91089509/190164525-829d1a5e-7205-4efb-be8b-7c0fe578008f.png">
+
 ***DATABASE***
+
 <img width="440" alt="image" src="https://user-images.githubusercontent.com/91089509/190164749-afa941dc-16bc-47c9-bfa4-b7506b89364f.png">
 
 ***4. Get a book by authors***
+
 ***POSTMAN***
 
+<img width="451" alt="image" src="https://user-images.githubusercontent.com/91089509/190176284-2f5959b9-81b1-43a0-ad39-90ddebe95e87.png">
+
+
 ***DATABASE***
+
+<img width="446" alt="image" src="https://user-images.githubusercontent.com/91089509/190176463-b8406df9-ef04-432d-8c20-96aa225b4215.png">
 
 
 ***5. Get a book by title***
+
 ***POSTMAN***
 
+<img width="441" alt="image" src="https://user-images.githubusercontent.com/91089509/190175569-02a9d30a-ac1b-4bf2-a2dc-62d3e8dea6fa.png">
+
 ***DATABASE***
+
+<img width="467" alt="image" src="https://user-images.githubusercontent.com/91089509/190176041-958734d2-f71d-409e-80de-db1dd8757070.png">
+
+***6. Update a book***
+
+***BEFORE UPDATE IN DATABASE***
+
+<img width="452" alt="image" src="https://user-images.githubusercontent.com/91089509/190179795-4af28e00-734d-40ff-8360-481c14ba6da6.png">
+
+***POSTMAN UPDATE REQUEST ***
+
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/91089509/190180170-18a76b31-525d-4572-bcdf-c155288861f1.png">
+
+***AFTER DATABASE IN DATABASE***
+
+<img width="584" alt="image" src="https://user-images.githubusercontent.com/91089509/190180503-110612e0-9a5c-4f8f-a505-2d96e08bcc23.png">
 
 ***6. Delete a Book***
+
+***BEFORE UPDATE IN DATABASE***
+
+<img width="584" alt="image" src="https://user-images.githubusercontent.com/91089509/190180503-110612e0-9a5c-4f8f-a505-2d96e08bcc23.png">
+
 ***POSTMAN***
+
+<img width="440" alt="image" src="https://user-images.githubusercontent.com/91089509/190181388-e95703f2-a09b-4d14-9755-bfd19d0e8889.png">
+
+
+***AFTER DATABASE IN DATABASE***
+
+<img width="458" alt="image" src="https://user-images.githubusercontent.com/91089509/190181503-238a9654-9aa5-4517-ae90-e7a5b26b0915.png">
+
+#### User
+***1. Create a User***
+
+***POSTMAN***
+
+<img width="402" alt="image" src="https://user-images.githubusercontent.com/91089509/190183890-336c3908-4e39-44ac-b3e7-4b07ea07413c.png">
+
+
+***DATABASE***
+
+<img width="548" alt="image" src="https://user-images.githubusercontent.com/91089509/190184058-446e9a45-540c-49f2-9129-3f1ded7d19e6.png">
+
+***2. Get All Users***
+
+***POSTMAN***
+
+<img width="436" alt="image" src="https://user-images.githubusercontent.com/91089509/190184454-aad13869-653d-4bcd-8c3b-6ef5aafb7d78.png">
+
+
+***DATABASE***
+
+<img width="707" alt="image" src="https://user-images.githubusercontent.com/91089509/190184748-20c92c6b-3a27-4a63-aadb-acc49de13d5f.png">
+
+
+***3. Get User by Library ID***
+
+***POSTMAN***
+
+<img width="448" alt="image" src="https://user-images.githubusercontent.com/91089509/190184949-6daeca70-fd94-4021-b815-8ae704dfd466.png">
+
+***DATABASE***
+
+<img width="662" alt="image" src="https://user-images.githubusercontent.com/91089509/190185096-b261f2f8-7ffc-4487-8785-4519d86b02f8.png">
+
+***4. Update email on User***
+
+***BEFORE UPDATE IN DATABASE***
+
+<img width="701" alt="image" src="https://user-images.githubusercontent.com/91089509/190185519-4f20f0e4-6df7-42a4-86d0-7168ac4534a7.png">
+
+
+***POSTMAN***
+
+<img width="375" alt="image" src="https://user-images.githubusercontent.com/91089509/190185686-f0ceacbd-93be-40da-b855-162fa176d1a4.png">
+
+
+***AFTER UPDATE IN DATABASE***
+
+<img width="733" alt="image" src="https://user-images.githubusercontent.com/91089509/190185933-275b872c-a423-4b49-b048-70e647d03ee5.png">
+
+
+***5. Delete a User***
+
+***BEFORE UPDATE IN DATABASE***
+
+<img width="733" alt="image" src="https://user-images.githubusercontent.com/91089509/190185933-275b872c-a423-4b49-b048-70e647d03ee5.png">
+
+***POSTMAN***
+
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/91089509/190186172-3026297a-64b1-43e8-bdaf-3bf7d1b2e68d.png">
+
+
+***AFTER UPDATE IN DATABASE***
+
+<img width="628" alt="image" src="https://user-images.githubusercontent.com/91089509/190186287-1da60df5-c203-4ebf-b090-2d721dd911cf.png">
+
+
+#### Loans
+***1. Create a Book Loan ***
+
+***POSTMAN***
+
+<img width="458" alt="image" src="https://user-images.githubusercontent.com/91089509/190186691-6207c705-fd04-4a02-a14a-4447e2986a9c.png">
+
 
 ***DATABASE***
 
 
 
-### Screenshots of your database to prove that data is being persisted.
+
+***2. Get All Books on Loan***
+
+***POSTMAN***
+
+<img width="413" alt="image" src="https://user-images.githubusercontent.com/91089509/190186976-46243dd8-e3e9-4812-89ca-14dbf25ff3d9.png">
+
+
+***DATABASE***
+
+<img width="474" alt="image" src="https://user-images.githubusercontent.com/91089509/190187131-f2c0f9f5-ebc1-4811-9481-9ba8f7c893c1.png">
+
+
+***3. Get Loans by User***
+
+***POSTMAN***
+
+<img width="455" alt="image" src="https://user-images.githubusercontent.com/91089509/190189875-cf2ecd9d-51bb-4c7a-bc47-d366faba62a5.png">
+
+
+***DATABASE***
+
+<img width="470" alt="image" src="https://user-images.githubusercontent.com/91089509/190190123-6ed7c168-328d-4bba-9eb3-ef97097bea56.png">
+
+
+***4. Return a book (update expiry date)***
+
+***BEFORE UPDATE IN DATABASE***
+
+
+***POSTMAN***
+
+
+***AFTER UPDATE IN DATABASE***
+
+
+***5. Delete a User***
+
+***BEFORE UPDATE IN DATABASE***
+
+***POSTMAN***
+
+
+***AFTER UPDATE IN DATABASE***
+
+
+
 
 
 ### Screenshot of your test results, including coverage report.
