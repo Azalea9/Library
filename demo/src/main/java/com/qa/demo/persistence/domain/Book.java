@@ -41,6 +41,13 @@ public class Book {
         this.authors = authors;
     }
 
+    public Book(Long isbn, String title, String authors) {
+        super();
+        this.isbn = isbn;
+        this.title = title;
+        this.authors = authors;
+    }
+
         // Empty Construcor
         public Book(){
             super();

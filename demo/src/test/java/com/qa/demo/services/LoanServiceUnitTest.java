@@ -46,15 +46,15 @@ public class LoanServiceUnitTest {
         Assertions.assertThat(loans.size()).isGreaterThan(0);
     }
 
-    @Test
-    void testFindBylibId(){
-        final Long libId = 1020L;
-        final Loan newLoan = new Loan(1L,34L, 1020L,LocalDate.of(2022,9,13),LocalDate.of(2022,9,24));
+    // @Test
+    // void testFindBylibId(){
+    //     final Long libId = 1020L;
+    //     final Loan newLoan = new Loan(1L,34L, 1020L,LocalDate.of(2022,9,13),LocalDate.of(2022,9,24));
 
-        Mockito.when(this.repo.findBylibId(libId)).thenReturn(newLoan);
-        Assertions.assertThat(this.service.findByLibId(libId)).isEqualTo(newLoan);
-        Mockito.verify(this.repo, Mockito.times(1)).findBylibId(libId);
-    }
+    //     Mockito.when(this.repo.findBylibId(libId)).thenReturn(newLoan);
+    //     Assertions.assertThat(this.service.findByLibId(libId)).isEqualTo(newLoan);
+    //     Mockito.verify(this.repo, Mockito.times(1)).findBylibId(libId);
+    // }
 
     // @Test
     // void testReturnLoan(){
