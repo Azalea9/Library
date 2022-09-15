@@ -10,8 +10,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +35,7 @@ import com.qa.demo.persistence.repos.UserRepo;
 
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @AutoConfigureMockMvc // sets up the MockMVC object
 //@Sql(scripts = { "classpath:book-schema.sql",
 //		"classpath:book-data.sql" }, executionphase = ExecutionPhase.BEFORE_TEST_METHOD)
@@ -62,7 +68,24 @@ public class UserControllerIntegrationTest {
                 savedUser = new User(1L,"Freddy123", "P@55word", "Freddy123@mail.com", 5, 0);
 
     }
+
+    @Test
+	@Order(1)
+	void testGetAllUsers() throws Exception {
+		String savedUsersAsJSON = this.mapper
+				.writeValueAsString(usersInDb);
+
+		RequestBuilder request = get("/getAll/users/");
+
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkContent = content().json(savedUsersAsJSON);
+
+		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
+	}
+
+
 	@Test
+	@Order(4)
 	void testCreateUser() throws Exception {
 		
 		String testUserAsJSON = this.mapper.writeValueAsString(testUser);
@@ -78,20 +101,10 @@ public class UserControllerIntegrationTest {
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
     }
 
-    @Test
-	void testGetAllUsers() throws Exception {
-		String savedUsersAsJSON = this.mapper
-				.writeValueAsString(usersInDb);
 
-		RequestBuilder request = get("/getAll/users/");
-
-		ResultMatcher checkStatus = status().isOk();
-		ResultMatcher checkContent = content().json(savedUsersAsJSON);
-
-		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
-	}
 
     @Test
+	@Order(2)
     void GetUserByLibId() throws Exception {
 		usersInDb.add(repo.save(testUser));
         String savedBookAsJSON = this.mapper.writeValueAsString(testUser);
@@ -106,6 +119,7 @@ public class UserControllerIntegrationTest {
     }
 
 	@Test
+	@Order(3)
 	void testUpdateUser() throws Exception {
 		usersInDb.add(repo.save(testUser));
 
@@ -122,6 +136,7 @@ public class UserControllerIntegrationTest {
 	}
 
 	@Test
+	@Order(5)
 	void deleteById() throws Exception {
 
 		final String testUserAsJSON = this.mapper.writeValueAsString(testUserChanged);

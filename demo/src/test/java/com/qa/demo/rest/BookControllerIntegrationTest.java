@@ -11,7 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +33,7 @@ import com.qa.demo.persistence.repos.LibraryRepo;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 //@Sql(scripts = { "classpath:book-schema.sql",
 //		"classpath:book-data.sql" }, executionphase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
@@ -58,12 +62,13 @@ public class BookControllerIntegrationTest {
 
 		        booksInDb.addAll(repo.saveAll(books));
 				testAddBook = new Book(3L,9798469518259L, "Black Beauty","Anna Sewell");
-                testBook = new Book(1L,19781507663165L, "Persuasion","Jane Austen");
+                testBook = new Book(1L,9781507663165L, "Persuasion","Jane Austen");
                 testBookChanged = new Book(1L,9781507663165L, "Pride and Prejudice","Jane Austen");
                 savedBook = new Book(1L, 9781507663165L, "Persuasion","Jane Austen");
 
     }
 	@Test
+	@Order(3)
 	void testCreateBook() throws Exception {
 		
 		String testBookAsJSON = this.mapper.writeValueAsString(testBook);
@@ -80,6 +85,7 @@ public class BookControllerIntegrationTest {
     }
 
     @Test
+	@Order(1)
 	void testGetAllBooks() throws Exception {
 		String savedBookAsJSON = this.mapper
 				.writeValueAsString(booksInDb);
@@ -93,6 +99,7 @@ public class BookControllerIntegrationTest {
 	}
 
     @Test
+	@Order(2)
     void GetBookByIsbn() throws Exception {
 		booksInDb.add(repo.save(testAddBook));
 
@@ -112,6 +119,7 @@ public class BookControllerIntegrationTest {
     }
 
 	@Test
+	@Order(4)
 	void testUpdate() throws Exception {
 		booksInDb.add(repo.save(testBook));
 
@@ -128,6 +136,7 @@ public class BookControllerIntegrationTest {
 	}
 
 	@Test
+	@Order(5)
 	void deleteById() throws Exception {
 
 		final String testBookAsJSON = this.mapper.writeValueAsString(testBookChanged);

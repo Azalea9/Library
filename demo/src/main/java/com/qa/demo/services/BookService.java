@@ -42,7 +42,7 @@ public class BookService {
         if (found == null){
             throw new BookNotFoundException("The book for "+isbn+ " is not found");
         }
-        return this.repo.findByIsbn(isbn);
+        return found;
         
     }
 
@@ -73,10 +73,7 @@ public class BookService {
     // removes a book by id
     public boolean removeBook(Long id){
        
-        if (!this.repo.existsById(id)){
-            throw new BookNotFoundException("Book "+id + " is not found");
-        }
-
+        
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);
         return !exists;

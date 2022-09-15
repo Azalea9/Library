@@ -37,7 +37,8 @@ public class UserService {
         if (found == null){
             throw new UserNotFoundException("The user id " + libId + " is not found");
         }
-        return this.repo.findUserBylibId(libId);
+     
+       return found;
     }
 
 
@@ -58,10 +59,6 @@ public class UserService {
     // removes a user by id
     public boolean removeUser(Long id){
     
-        if (!this.repo.existsById(id)){
-            throw new UserNotFoundException("User "+id + " is not found");
-        }
-
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);
         return !exists;
