@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.qa.demo.exceptions.UserNotFoundException;
 import com.qa.demo.persistence.domain.User;
 import com.qa.demo.persistence.repos.UserRepo;
 
@@ -30,6 +31,12 @@ public class UserService {
 
     //Get an individual user by libId
     public User findUserbylibId(Long libId){
+
+        User found = this.repo.findUserBylibId(libId);
+
+        if (found == null){
+            throw new UserNotFoundException("The user id " + libId + " is not found");
+        }
         return this.repo.findUserBylibId(libId);
     }
 
@@ -51,6 +58,10 @@ public class UserService {
     // removes a user by id
     public boolean removeUser(Long id){
     
+        if (!this.repo.existsById(id)){
+            throw new UserNotFoundException("User "+id + " is not found");
+        }
+
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);
         return !exists;

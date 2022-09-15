@@ -57,7 +57,18 @@ public class UserServiceUnitTests {
                     
     }
 
-@Test
+    @Test
+    void testDeleteUser(){
+        final Long id = 1L;
+
+        Mockito.when(this.repo.existsById(id)).thenReturn(false);
+        Assertions.assertThat(this.service.removeUser(id)).isEqualTo(true);
+
+        Mockito.verify(this.repo, Mockito.times(1)).existsById(id);
+
+    }
+
+//@Test
  //TO DO - figure out why this test is failing
 //    void updateUserTest(){
 //         final Long id = 1L;
@@ -74,19 +85,7 @@ public class UserServiceUnitTests {
         //Mockito.verify(this.repo, Mockito.times(1)).findById(id);
         //Mockito.verify(this.repo, Mockito.times(1)).save(updateUser);
 
-   }
-
-    @Test
-    void testDeleteUser(){
-        final Long id = 1L;
-
-        Mockito.when(this.repo.existsById(id)).thenReturn(false);
-        Assertions.assertThat(this.service.removeUser(id)).isEqualTo(true);
-
-        Mockito.verify(this.repo, Mockito.times(1)).existsById(id);
 
 
-
-    }
 
     }

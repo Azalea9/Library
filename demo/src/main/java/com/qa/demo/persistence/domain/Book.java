@@ -85,4 +85,8 @@ public class Book {
     public void setAuthors(String authors) {
         this.authors = authors;
     }
+
+    public Book orElseThrow(Object object) {
+        return null;
+    }
 }
