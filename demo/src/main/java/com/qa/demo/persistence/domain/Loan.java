@@ -2,11 +2,12 @@ package com.qa.demo.persistence.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -20,13 +21,17 @@ public class Loan {
     private Long loanId;
 
     @NotNull
+    @Column(name ="book_id")
     private Long bookId;
 
     @NotNull
+    @Column(name ="lib_id")
     private Long libId;
 
     private LocalDate startDate;
     private LocalDate expiryDate;
+
+
 
     public Loan(Long loanId, Long bookId, Long libId, LocalDate startDate, LocalDate expiryDate) {
         super();
