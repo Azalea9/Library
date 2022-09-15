@@ -48,7 +48,7 @@ public class BookServiceUnitTest {
     @Test
     void testFindByIsbn(){
         final Long isbn = 1020304050601L;
-        final List<Book> newBook = List.of(new Book(1L,1020304050601L, "The Happy Bunny", "Simon Green"));
+        final Book newBook = new Book(1L,1020304050601L, "The Happy Bunny", "Simon Green");
         
         Mockito.when(this.repo.findByIsbn(isbn)).thenReturn(newBook);
         Assertions.assertThat(this.service.getBookByIsbn(isbn)).isEqualTo(newBook);

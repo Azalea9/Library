@@ -36,7 +36,7 @@ public class LibraryController {
 
     // get a book by ISBN
     @GetMapping("/getByIsbn/book")
-    public List<Book> getByIsbn(@PathParam("isbn") Long isbn){
+    public Book getByIsbn(@PathParam("isbn") Long isbn){
         return this.bookService.getBookByIsbn(isbn);
     }
 

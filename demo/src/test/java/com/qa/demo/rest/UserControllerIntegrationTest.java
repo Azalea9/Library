@@ -24,16 +24,17 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.qa.demo.persistence.domain.Book;
-import com.qa.demo.persistence.repos.LibraryRepo;
+import com.qa.demo.persistence.domain.User;
+import com.qa.demo.persistence.repos.UserRepo;
+
 
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-@AutoConfigureMockMvc 
+@AutoConfigureMockMvc // sets up the MockMVC object
 //@Sql(scripts = { "classpath:book-schema.sql",
 //		"classpath:book-data.sql" }, executionphase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
-public class BookControllerIntegrationTest {
+public class UserControllerIntegrationTest {
 
 	@Autowired // inject the MockMVC object into this class
 	private MockMvc mvc; // object for sending mock http requests
@@ -42,87 +43,80 @@ public class BookControllerIntegrationTest {
 	private ObjectMapper mapper;
 
     @Autowired
-    private LibraryRepo repo;
+    private UserRepo repo;
 
-    private Book testBook;
-    private Book testBookChanged;
-	private Book testAddBook;
-    private List<Book> booksInDb = new ArrayList<>();
-    private Book savedBook;
+    private User testUser;
+    private User testUserChanged;
+    private List<User> usersInDb = new ArrayList<>();
+    private User savedUser;
 
     @BeforeEach
 	public void init() {
-		List<Book> books = List.of(
-				new Book(9781507663165L, "Persuasion","Jane Austen"),
-				new Book(9780307279460L, "A Walk in the woods","Bill Bryson"));
+		List<User> users = List.of(
+				new User("Freddy123", "P@55word", "Freddy123@mail.com", 5, 0),
+				new User("Samguest", "P@55word", "Samguest@mail.com", 5, 0));
 
-		        booksInDb.addAll(repo.saveAll(books));
-				testAddBook = new Book(3L,9798469518259L, "Black Beauty","Anna Sewell");
-                testBook = new Book(1L,19781507663165L, "Persuasion","Jane Austen");
-                testBookChanged = new Book(1L,9781507663165L, "Pride and Prejudice","Jane Austen");
-                savedBook = new Book(1L, 9781507663165L, "Persuasion","Jane Austen");
+		        usersInDb.addAll(repo.saveAll(users));
+                testUser = new User(1L,"Freddy123", "P@55word", "Freddy123@mail.com", 5, 0);
+                testUserChanged = new User(1L,"Freddy123", "P@55word", "Frederic@mail.com", 5, 0);
+                savedUser = new User(1L,"Freddy123", "P@55word", "Freddy123@mail.com", 5, 0);
 
     }
 	@Test
-	void testCreateBook() throws Exception {
+	void testCreateUser() throws Exception {
 		
-		String testBookAsJSON = this.mapper.writeValueAsString(testBook);
-        String savedBookAsJSON = this.mapper.writeValueAsString(savedBook);
+		String testUserAsJSON = this.mapper.writeValueAsString(testUser);
+        String savedUserAsJSON = this.mapper.writeValueAsString(savedUser);
 
 		// method, path, headers, body
-		RequestBuilder request = post("/create/book").contentType(MediaType.APPLICATION_JSON)
-				.content(testBookAsJSON);
+		RequestBuilder request = post("/create/user").contentType(MediaType.APPLICATION_JSON)
+				.content(testUserAsJSON);
 
 		ResultMatcher checkStatus = status().isOk();
-		ResultMatcher checkContent = content().json(savedBookAsJSON);
+		ResultMatcher checkContent = content().json(savedUserAsJSON);
         
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
     }
 
     @Test
-	void testGetAllBooks() throws Exception {
-		String savedBookAsJSON = this.mapper
-				.writeValueAsString(booksInDb);
+	void testGetAllUsers() throws Exception {
+		String savedUsersAsJSON = this.mapper
+				.writeValueAsString(usersInDb);
 
-		RequestBuilder request = get("/getAll/books");
+		RequestBuilder request = get("/getAll/users/");
 
 		ResultMatcher checkStatus = status().isOk();
-		ResultMatcher checkContent = content().json(savedBookAsJSON);
+		ResultMatcher checkContent = content().json(savedUsersAsJSON);
 
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
 	}
 
     @Test
-    void GetBookByIsbn() throws Exception {
-		booksInDb.add(repo.save(testAddBook));
-
-		String addedBookAsJSON = this.mapper
-				.writeValueAsString(testAddBook);
-
-
-       // String savedBookAsJSON = this.mapper.writeValueAsString(testBook);
+    void GetUserByLibId() throws Exception {
+		usersInDb.add(repo.save(testUser));
+        String savedBookAsJSON = this.mapper.writeValueAsString(testUser);
         
-        RequestBuilder request = get("/getByIsbn/book?isbn="+testAddBook.getIsbn());
+        RequestBuilder request = get("/getBylibID?libId="+testUser.getLibId());
 
         ResultMatcher checkStatus = status().isOk();
-		ResultMatcher checkContent = content().json(addedBookAsJSON);
+		ResultMatcher checkContent = content().json(savedBookAsJSON);
 
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
 
     }
 
 	@Test
-	void testUpdate() throws Exception {
-		booksInDb.add(repo.save(testBook));
+	void testUpdateUser() throws Exception {
+		usersInDb.add(repo.save(testUser));
 
-		final String testBookAsJSON = this.mapper.writeValueAsString(testBookChanged);
+		final String testUserAsJSON = this.mapper.writeValueAsString(testUserChanged);
 
-		RequestBuilder request = put("/update/book?id="+testBookChanged.getId()).contentType(MediaType.APPLICATION_JSON)
-				.content(testBookAsJSON);
+		RequestBuilder request = put("/update/email?libId="+testUserChanged.getLibId()).contentType(MediaType.APPLICATION_JSON)
+				.content(testUserAsJSON);
 				
 
 		ResultMatcher checkStatus = status().isOk();
-		ResultMatcher checkContent = content().json(testBookAsJSON);
+		ResultMatcher checkContent = content().json(testUserAsJSON);
 
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
 	}
@@ -130,9 +124,9 @@ public class BookControllerIntegrationTest {
 	@Test
 	void deleteById() throws Exception {
 
-		final String testBookAsJSON = this.mapper.writeValueAsString(testBookChanged);
-		RequestBuilder request = delete("/delete/book/"+testBookChanged.getId()).contentType(MediaType.APPLICATION_JSON)
-		.content(testBookAsJSON);
+		final String testUserAsJSON = this.mapper.writeValueAsString(testUserChanged);
+		RequestBuilder request = delete("/delete/user/"+testUserChanged.getLibId()).contentType(MediaType.APPLICATION_JSON)
+		.content(testUserAsJSON);
 
 		ResultMatcher checkStatus = status().isOk();
 		
@@ -140,4 +134,3 @@ public class BookControllerIntegrationTest {
 	}
 
 }
-

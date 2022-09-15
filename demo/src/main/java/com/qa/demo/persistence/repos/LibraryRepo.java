@@ -8,7 +8,7 @@ import com.qa.demo.persistence.domain.Book;
 
 @Repository
 public interface LibraryRepo extends JpaRepository<Book, Long> {
-    List<Book> findByIsbn(Long isbn);
+    Book findByIsbn(Long isbn);
     List<Book> findByAuthorsContaining(String authors);
     List<Book> findByTitleContaining(String title);
 }

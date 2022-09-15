@@ -33,7 +33,7 @@ public class BookService {
     }
 
     //Get an individual book by ISBN 
-    public List<Book> getBookByIsbn(Long isbn){
+    public Book getBookByIsbn(Long isbn){
         return this.repo.findByIsbn(isbn);
     }
 

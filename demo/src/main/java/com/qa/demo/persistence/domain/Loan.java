@@ -39,6 +39,17 @@ public class Loan {
         this.expiryDate = returnDate;
     }
 
+    public Loan(Long bookId, Long libId) {
+        super();
+        // the books are set to return in 21 days
+        LocalDate returnDate = LocalDate.now().plusDays(21);
+        this.bookId = bookId;
+        this.libId = libId;
+        this.startDate = LocalDate.now();
+        this.expiryDate = returnDate;
+    }
+
+
     // Empty Construcor
      public Loan(){
         super();

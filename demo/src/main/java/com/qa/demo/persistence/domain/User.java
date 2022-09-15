@@ -52,6 +52,15 @@ public class User {
         this.numOfBooksOnLoan = 0;
     }
 
+    public User(String username, String password, String email, int numOfBooksAllowed, int setNumOfBooksOnLoan) {
+        
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.numOfBooksAllowed = 5;
+        this.numOfBooksOnLoan = 0;
+    }
+
     // Getters and Setters for Users
     public Long getLibId() {
         return libId;

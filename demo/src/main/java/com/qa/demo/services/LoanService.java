@@ -44,10 +44,10 @@ public class LoanService {
         
         Optional<Loan> existingOptional = this.repo.findById(loanId);
         Loan existing = existingOptional.get();
-        existing.setExpiryDate(LocalDate.now());
+        existing.setExpiryDate(newLoan.getExpiryDate());
         existing.setBookId(newLoan.getBookId());
         existing.setLibId(newLoan.getLibId());
-        //existing.setStartDate(newLoan.getStartDate());
+        existing.setStartDate(newLoan.getStartDate());
         return this.repo.save(existing);
 
     }
