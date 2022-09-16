@@ -1,0 +1,1 @@
+INSERT INTO books (isbn, title, authors) VALUES (9798447162016, 'Pride and Prejudice','Jane Austen')
