@@ -336,24 +336,17 @@ https://azalea999.atlassian.net/l/cp/7jwtbhCY
 
 ***BEFORE UPDATE IN DATABASE***
 
+<img width="297" alt="image" src="https://user-images.githubusercontent.com/91089509/190658256-6a20ec77-8ae3-4f01-9b28-cd0f89ed9970.png">
+
 
 ***POSTMAN***
+
+<img width="486" alt="image" src="https://user-images.githubusercontent.com/91089509/190658510-49c0e50a-ee22-424a-9c0a-6c705029b821.png">
 
 
 ***AFTER UPDATE IN DATABASE***
 
-
---------------------------------------------------------------------------------------------------
-
-***5. Delete a User***
-
-***BEFORE UPDATE IN DATABASE***
-
-***POSTMAN***
-
-
-***AFTER UPDATE IN DATABASE***
-
+<img width="293" alt="image" src="https://user-images.githubusercontent.com/91089509/190658684-b53a6d37-302e-4681-89ef-0d67a757f72e.png">
 
 
 --------------------------------------------------------------------------------------------------
