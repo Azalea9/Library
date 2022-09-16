@@ -1,5 +1,6 @@
 package com.qa.demo.rest;
 
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -11,12 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+
 import org.junit.jupiter.api.TestMethodOrder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -69,6 +71,7 @@ public class BookControllerIntegrationTest {
                 savedBook = new Book(1L, 9781507663165L, "Persuasion","Jane Austen");
 
     }
+
 	
 	@Test
 	@Order(3)
@@ -108,9 +111,6 @@ public class BookControllerIntegrationTest {
 
 		String addedBookAsJSON = this.mapper
 				.writeValueAsString(testAddBook);
-
-
-       // String savedBookAsJSON = this.mapper.writeValueAsString(testBook);
         
         RequestBuilder request = get("/getByIsbn/book?isbn="+testAddBook.getIsbn());
 

@@ -49,8 +49,8 @@ public class UserService {
         User existing = existingOptional.get();
         existing.setUsername(newUser.getUsername());
         existing.setPassword(newUser.getPassword());
-        existing.setNumOfBooksAllowed(newUser.getNumOfBooksAllowed());
-        existing.setNumOfBooksOnLoan(newUser.getNumOfBooksOnLoan());
+        //existing.setNumOfBooksAllowed(newUser.getNumOfBooksAllowed());
+        //existing.setNumOfBooksOnLoan(newUser.getNumOfBooksOnLoan());
         existing.setEmail(newUser.getEmail());
 
         return this.repo.save(existing);

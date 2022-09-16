@@ -1,8 +1,7 @@
 package com.qa.demo.services;
 
 import java.util.List;
-import java.util.Optional;
-
+//import java.util.Optional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -21,17 +20,6 @@ public class UserServiceUnitTests {
 
     @MockBean
     private UserRepo repo;
-
-    @Test
-    void testCreate(){
-        final User newUser = new User(null,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
-        final User savedUser = new User(1L,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
-
-        Mockito.when(this.repo.save(newUser)).thenReturn(savedUser);
-
-        Assertions.assertThat(this.service.addUser(newUser)).isEqualTo(savedUser);
-
-    }
 
     @Test
     void testFindByLibId(){
@@ -53,8 +41,7 @@ public class UserServiceUnitTests {
 
         Assertions.assertThat(users.size()).isGreaterThan(0);
 
-     
-                    
+    
     }
 
     @Test
@@ -69,23 +56,33 @@ public class UserServiceUnitTests {
     }
 
 //@Test
- //TO DO - figure out why this test is failing
+
 //    void updateUserTest(){
-//         final Long id = 1L;
-//         final User user = new User(id,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
-//         Optional<User> optionalUser = Optional.of(user);
+//         Long id = 1L;
+//         User user = new User(null, "Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
+//         //Optional<User> optionalUser = Optional.of(user);
 
-//         User updateUser = new User(id,"Freddy", "p@55w0rd", "Frederic@mail.com",5,0);
+//         User updateUser = new User(1L,user.getUsername(), user.getPassword(),user.getEmail(),user.getNumOfBooksAllowed(),user.getNumOfBooksOnLoan());
+//         Mockito.when(this.service.updateEmail(1L, updateUser)).thenReturn(updateUser);
 
-//         Mockito.when(this.repo.findById(id)).thenReturn(optionalUser);
-//         Mockito.when(this.repo.save(updateUser)).thenReturn(updateUser);
+//         Assertions.assertThat(this.repo.findById(id)).isEqualTo(updateUser);
+    
+//         //Mockito.verify(this.repo, Mockito.times(1)).findById(id);
+//         //Mockito.verify(this.repo, Mockito.times(1)).save(updateUser);
 
-        
-//         Assertions.assertThat(updateUser).isEqualTo(this.service.updateEmail(id, updateUser));
-        //Mockito.verify(this.repo, Mockito.times(1)).findById(id);
-        //Mockito.verify(this.repo, Mockito.times(1)).save(updateUser);
+//     }
 
+    @Test
+    void testCreate(){
+        final User newUser = new User(null,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
+        final User savedUser = new User(1L,"Freddy", "p@55w0rd", "Freddy@mail.com",5,0);
 
+        Mockito.when(this.repo.save(newUser)).thenReturn(savedUser);
 
+        Assertions.assertThat(this.service.addUser(newUser)).isEqualTo(savedUser);
 
     }
+
+    
+
+}

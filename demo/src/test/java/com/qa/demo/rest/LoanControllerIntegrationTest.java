@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -22,7 +23,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -34,7 +34,7 @@ import com.qa.demo.persistence.domain.User;
 import com.qa.demo.persistence.repos.LibraryRepo;
 import com.qa.demo.persistence.repos.LoanRepo;
 import com.qa.demo.persistence.repos.UserRepo;
-import org.springframework.transaction.annotation.Transactional;
+
 
 
 
@@ -70,18 +70,19 @@ public class LoanControllerIntegrationTest {
 	private Book testBook2;
 	private User testUser;
 
+
     @BeforeEach
 	public void init() {
 		// Book data - need to support referential integrity of db
-		testBook1 = new Book(9798469518259L, "Black Beauty","Anna Sewell");
-		testBook2 = new Book(9781507663165L, "Pride and Prejudice","Jane Austen");
+		testBook1 = new Book(4L,9798469518259L, "Black Beauty","Anna Sewell");
+		testBook2 = new Book(5L, 9781507663165L, "Pride and Prejudice","Jane Austen");
 
 		this.libraryRepo.save(testBook1);
 		this.libraryRepo.save(testBook2);
 
 		// User data - need to support referential integrity of db
 
-		testUser = new User("Freddy123", "P@55word", "Freddy123@mail.com", 5, 0);
+		testUser = new User(5L,"Freddy123", "P@55word", "Freddy123@mail.com", 5, 0);
 
 		this.userRepo.save(testUser);
 
@@ -92,14 +93,13 @@ public class LoanControllerIntegrationTest {
 
 		        loansInDb.addAll(repo.saveAll(loans));
                 testLoan = new Loan(1L,1L,1L,LocalDate.now(),LocalDate.now().plusDays(21));
-                testLoanChanged = new Loan(1L,1L, 1L,LocalDate.now(),LocalDate.of(2022, 10, 22));
+                testLoanChanged = new Loan(2L,1L, 1L,LocalDate.now(),LocalDate.of(2022, 10, 07));
                 savedLoan = new Loan(1L,1L, 1L,LocalDate.now(),LocalDate.now().plusDays(21));
 
 
     }
 	@Test
 	@Order(2)
-	@Transactional
 	void testCreateLoan() throws Exception {
 		
 		String testLoanAsJSON = this.mapper.writeValueAsString(testLoan);
@@ -117,7 +117,6 @@ public class LoanControllerIntegrationTest {
 
     @Test
 	@Order(1)
-	@Transactional
 	void testGetAllLoans() throws Exception {
 		String savedLoansAsJSON = this.mapper
 				.writeValueAsString(loansInDb);
@@ -130,23 +129,22 @@ public class LoanControllerIntegrationTest {
 		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
 	}
 
-    // @Test
-    // void GetLoansByLibId() throws Exception {
-	// 	loansInDb.add(repo.save(testLoan));
-    //     String savedLoanAsJSON = this.mapper.writeValueAsString(testLoan);
+    @Test
+    void GetLoansByLibId() throws Exception {
+	
+        String savedLoanAsJSON = this.mapper.writeValueAsString(loansInDb);
         
-    //     RequestBuilder request = get("/find/loans/id?libId="+testLoan.getLibId());
+        RequestBuilder request = get("/find/loans/id?libId="+testLoan.getLibId());
 
-    //     ResultMatcher checkStatus = status().isOk();
-	// 	ResultMatcher checkContent = content().json(savedLoanAsJSON);
+        ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkContent = content().json(savedLoanAsJSON);
 
-	// 	this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
+		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
 
-    // }
+    }
 
 	@Test
 	@Order(3)
-	@Transactional
 	void testUpdateLoan() throws Exception {
 		loansInDb.add(repo.save(testLoan));
 
