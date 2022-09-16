@@ -48,6 +48,10 @@ The final product will be a n-tiered architecture (MVC) of an Web based backend 
 ### Design
  - [ ] Create tasks in Jira with **Story point sizing**
  - [ ] Create ERD diagram to help visualise the data storage
+ 
+### Project Risk Assessment
+ - [ ] Conduct a risk assessment on the factors that could delay or stop the successful completion of the projection
+ 
 ### Implementation
  - [ ] Create a springboot project with the required dependencies
  - [ ] Set up folder structure in Visual studio code
@@ -68,7 +72,7 @@ The final product will be a n-tiered architecture (MVC) of an Web based backend 
  - [ ] Write up results in readme file
 
 ## 4. How I expected the challenge to go?
-I expected some aspects of the challenge to be easier and other parts to be harder. The main success factor for me on this challenge was the limited time to learn the material and then be able to apply it to the project.  Overall, my expectation was that I would be successful to at least meet the basic requirements of the project.
+I expected some aspects of the challenge to be easier and other parts to be harder. The main challenge for me was the limited time to learn the material and then be able to apply it to the project as well meet other work and family commitments.  Overall, my expectation was that I would be successful to at least meet the basic requirements of the project.
 
 ### What went well?
  - [ ] Having a clear idea or scope of what the project should be and sticking to it
@@ -90,9 +94,24 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 - [ ] Building a web based UI for the User to interact with
 - [ ] Building more rigourous custom exceptions
 
-### Screenshots showing your postman requests and database
-#### Book
+
+## 5. Risk Assessment
+The table below shows the identified risks for completing the project
+
+
+<img width="479" alt="image" src="https://user-images.githubusercontent.com/91089509/190652316-bbc32e3b-e789-4eea-a238-5568e1e4ae63.png">
+
+https://azalea999.atlassian.net/l/cp/7jwtbhCY
+
+## 6. Database ERD of the Library app
+
+![Library ERD Diagram final](https://user-images.githubusercontent.com/91089509/190642292-f89ef303-2cdb-4ec2-8068-c38adb74061f.jpg)
+
+## 7. Screenshots showing your postman requests and database
+### Book
+
 ***1. Create a book***
+
 ***POSTMAN***
 
 <img width="487" text-align:left alt="image" src="https://user-images.githubusercontent.com/91089509/190163487-c999a6e6-e648-48dc-ba0f-ef242527d05e.png">
@@ -100,6 +119,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***DATABASE***
 
 <img width="442" alt="image" src="https://user-images.githubusercontent.com/91089509/190163882-8db4635f-a457-4d25-8c84-77b966305cf8.png">
+
+--------------------------------------------------------------------------------------------------
 
 ***2. Get all books***
 
@@ -111,6 +132,9 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 
 <img width="448" alt="image" src="https://user-images.githubusercontent.com/91089509/190164295-6aa50de3-4340-4fa1-81a5-7ca80ee9023e.png">
 
+
+--------------------------------------------------------------------------------------------------
+
 ***3. Get a book by isbn***
 
 ***POSTMAN***
@@ -120,6 +144,9 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***DATABASE***
 
 <img width="440" alt="image" src="https://user-images.githubusercontent.com/91089509/190164749-afa941dc-16bc-47c9-bfa4-b7506b89364f.png">
+
+
+--------------------------------------------------------------------------------------------------
 
 ***4. Get a book by authors***
 
@@ -133,6 +160,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 <img width="446" alt="image" src="https://user-images.githubusercontent.com/91089509/190176463-b8406df9-ef04-432d-8c20-96aa225b4215.png">
 
 
+--------------------------------------------------------------------------------------------------
+
 ***5. Get a book by title***
 
 ***POSTMAN***
@@ -143,13 +172,16 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 
 <img width="467" alt="image" src="https://user-images.githubusercontent.com/91089509/190176041-958734d2-f71d-409e-80de-db1dd8757070.png">
 
+
+--------------------------------------------------------------------------------------------------
+
 ***6. Update a book***
 
 ***BEFORE UPDATE IN DATABASE***
 
 <img width="452" alt="image" src="https://user-images.githubusercontent.com/91089509/190179795-4af28e00-734d-40ff-8360-481c14ba6da6.png">
 
-***POSTMAN UPDATE REQUEST ***
+***POSTMAN UPDATE REQUEST***
 
 <img width="443" alt="image" src="https://user-images.githubusercontent.com/91089509/190180170-18a76b31-525d-4572-bcdf-c155288861f1.png">
 
@@ -157,7 +189,10 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 
 <img width="584" alt="image" src="https://user-images.githubusercontent.com/91089509/190180503-110612e0-9a5c-4f8f-a505-2d96e08bcc23.png">
 
-***6. Delete a Book***
+
+--------------------------------------------------------------------------------------------------
+
+***7. Delete a Book***
 
 ***BEFORE UPDATE IN DATABASE***
 
@@ -172,7 +207,11 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 
 <img width="458" alt="image" src="https://user-images.githubusercontent.com/91089509/190181503-238a9654-9aa5-4517-ae90-e7a5b26b0915.png">
 
-#### User
+
+--------------------------------------------------------------------------------------------------
+
+### User
+
 ***1. Create a User***
 
 ***POSTMAN***
@@ -183,6 +222,9 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***DATABASE***
 
 <img width="548" alt="image" src="https://user-images.githubusercontent.com/91089509/190184058-446e9a45-540c-49f2-9129-3f1ded7d19e6.png">
+
+
+--------------------------------------------------------------------------------------------------
 
 ***2. Get All Users***
 
@@ -196,6 +238,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 <img width="707" alt="image" src="https://user-images.githubusercontent.com/91089509/190184748-20c92c6b-3a27-4a63-aadb-acc49de13d5f.png">
 
 
+--------------------------------------------------------------------------------------------------
+
 ***3. Get User by Library ID***
 
 ***POSTMAN***
@@ -205,6 +249,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***DATABASE***
 
 <img width="662" alt="image" src="https://user-images.githubusercontent.com/91089509/190185096-b261f2f8-7ffc-4487-8785-4519d86b02f8.png">
+
+--------------------------------------------------------------------------------------------------
 
 ***4. Update email on User***
 
@@ -223,6 +269,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 <img width="733" alt="image" src="https://user-images.githubusercontent.com/91089509/190185933-275b872c-a423-4b49-b048-70e647d03ee5.png">
 
 
+--------------------------------------------------------------------------------------------------
+
 ***5. Delete a User***
 
 ***BEFORE UPDATE IN DATABASE***
@@ -239,7 +287,10 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 <img width="628" alt="image" src="https://user-images.githubusercontent.com/91089509/190186287-1da60df5-c203-4ebf-b090-2d721dd911cf.png">
 
 
-#### Loans
+--------------------------------------------------------------------------------------------------
+
+### Loans
+
 ***1. Create a Book Loan ***
 
 ***POSTMAN***
@@ -250,7 +301,7 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***DATABASE***
 
 
-
+--------------------------------------------------------------------------------------------------
 
 ***2. Get All Books on Loan***
 
@@ -264,6 +315,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 <img width="474" alt="image" src="https://user-images.githubusercontent.com/91089509/190187131-f2c0f9f5-ebc1-4811-9481-9ba8f7c893c1.png">
 
 
+--------------------------------------------------------------------------------------------------
+
 ***3. Get Loans by User***
 
 ***POSTMAN***
@@ -274,6 +327,9 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***DATABASE***
 
 <img width="470" alt="image" src="https://user-images.githubusercontent.com/91089509/190190123-6ed7c168-328d-4bba-9eb3-ef97097bea56.png">
+
+
+--------------------------------------------------------------------------------------------------
 
 
 ***4. Return a book (update expiry date)***
@@ -287,6 +343,8 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 ***AFTER UPDATE IN DATABASE***
 
 
+--------------------------------------------------------------------------------------------------
+
 ***5. Delete a User***
 
 ***BEFORE UPDATE IN DATABASE***
@@ -298,12 +356,12 @@ I expected some aspects of the challenge to be easier and other parts to be hard
 
 
 
+--------------------------------------------------------------------------------------------------
+
+## 8. Screenshot of test results, including coverage report.
 
 
-### Screenshot of your test results, including coverage report.
-
-
-### 	Link to Jira Board - You must add your trainer(s) as collaborators also.
+## 9. 	Link to Jira Board
 
 https://azalea999.atlassian.net/jira/software/projects/QP/boards/1/backlog
 
