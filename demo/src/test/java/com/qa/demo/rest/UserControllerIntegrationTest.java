@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +28,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.demo.persistence.domain.User;
@@ -86,6 +88,7 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	@Order(4)
+	@Transactional
 	void testCreateUser() throws Exception {
 		
 		String testUserAsJSON = this.mapper.writeValueAsString(testUser);
@@ -105,6 +108,7 @@ public class UserControllerIntegrationTest {
 
     @Test
 	@Order(2)
+	@Transactional
     void GetUserByLibId() throws Exception {
 		usersInDb.add(repo.save(testUser));
         String savedBookAsJSON = this.mapper.writeValueAsString(testUser);
@@ -120,6 +124,7 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	@Order(3)
+	@Transactional
 	void testUpdateUser() throws Exception {
 		usersInDb.add(repo.save(testUser));
 
@@ -137,6 +142,7 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	@Order(5)
+	@Transactional
 	void deleteById() throws Exception {
 
 		final String testUserAsJSON = this.mapper.writeValueAsString(testUserChanged);
