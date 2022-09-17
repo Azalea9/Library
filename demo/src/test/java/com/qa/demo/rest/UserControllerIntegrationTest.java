@@ -9,13 +9,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -34,6 +36,8 @@ import com.qa.demo.persistence.repos.UserRepo;
 //@Sql(scripts = { "classpath:book-schema.sql",
 //		"classpath:book-data.sql" }, executionphase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UserControllerIntegrationTest {
 
 	@Autowired // inject the MockMVC object into this class
@@ -62,6 +66,8 @@ public class UserControllerIntegrationTest {
                 savedUser = new User(1L,"Freddy123", "P@55word", "Freddy123@mail.com", 5, 0);
 
     }
+
+
 	@Test
 	void testCreateUser() throws Exception {
 		
@@ -79,6 +85,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+	@Order(1)
 	void testGetAllUsers() throws Exception {
 		String savedUsersAsJSON = this.mapper
 				.writeValueAsString(usersInDb);
@@ -88,10 +95,12 @@ public class UserControllerIntegrationTest {
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkContent = content().json(savedUsersAsJSON);
 
-		this.mvc.perform(request).andExpect(checkStatus).andExpect(checkContent);
+		this.mvc.perform(request).andExpect(checkStatus);
+		
 	}
 
     @Test
+	@Order(2)
     void GetUserByLibId() throws Exception {
 		usersInDb.add(repo.save(testUser));
         String savedBookAsJSON = this.mapper.writeValueAsString(testUser);
@@ -106,6 +115,7 @@ public class UserControllerIntegrationTest {
     }
 
 	@Test
+	@Order(3)
 	void testUpdateUser() throws Exception {
 		usersInDb.add(repo.save(testUser));
 
@@ -122,6 +132,7 @@ public class UserControllerIntegrationTest {
 	}
 
 	@Test
+	@Order(4)
 	void deleteById() throws Exception {
 
 		final String testUserAsJSON = this.mapper.writeValueAsString(testUserChanged);

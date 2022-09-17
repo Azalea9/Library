@@ -3,24 +3,20 @@ package com.qa.demo.services;
 
 import java.util.List;
 import java.util.Optional;
-
-
 import org.springframework.stereotype.Service;
-
 import com.qa.demo.exceptions.BookNotFoundException;
-
 import com.qa.demo.persistence.domain.Book;
 import com.qa.demo.persistence.repos.LibraryRepo;
 
 @Service
 public class BookService {
 
-
     private LibraryRepo repo;
     
     public BookService(LibraryRepo repo){
         super();
         this.repo = repo;
+    
     }
 
     //Create a book
@@ -42,7 +38,7 @@ public class BookService {
         if (found == null){
             throw new BookNotFoundException("The book for "+isbn+ " is not found");
         }
-        return this.repo.findByIsbn(isbn);
+        return found;
         
     }
 
@@ -73,9 +69,6 @@ public class BookService {
     // removes a book by id
     public boolean removeBook(Long id){
        
-        if (!this.repo.existsById(id)){
-            throw new BookNotFoundException("Book "+id + " is not found");
-        }
 
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);

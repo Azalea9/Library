@@ -37,7 +37,8 @@ public class UserService {
         if (found == null){
             throw new UserNotFoundException("The user id " + libId + " is not found");
         }
-        return this.repo.findUserBylibId(libId);
+     
+       return found;
     }
 
 
@@ -48,8 +49,8 @@ public class UserService {
         User existing = existingOptional.get();
         existing.setUsername(newUser.getUsername());
         existing.setPassword(newUser.getPassword());
-        existing.setNumOfBooksAllowed(newUser.getNumOfBooksAllowed());
-        existing.setNumOfBooksOnLoan(newUser.getNumOfBooksOnLoan());
+        //existing.setNumOfBooksAllowed(newUser.getNumOfBooksAllowed());
+        //existing.setNumOfBooksOnLoan(newUser.getNumOfBooksOnLoan());
         existing.setEmail(newUser.getEmail());
 
         return this.repo.save(existing);
@@ -58,10 +59,6 @@ public class UserService {
     // removes a user by id
     public boolean removeUser(Long id){
     
-        if (!this.repo.existsById(id)){
-            throw new UserNotFoundException("User "+id + " is not found");
-        }
-
         this.repo.deleteById(id);
         boolean exists = this.repo.existsById(id);
         return !exists;

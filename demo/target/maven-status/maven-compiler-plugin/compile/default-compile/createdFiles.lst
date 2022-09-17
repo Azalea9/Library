@@ -1,0 +1,16 @@
+com\qa\demo\rest\controllers\LoanController.class
+com\qa\demo\config\AppConfig.class
+com\qa\demo\persistence\repos\UserRepo.class
+com\qa\demo\persistence\domain\Loan.class
+com\qa\demo\persistence\domain\User.class
+com\qa\demo\services\BookService.class
+com\qa\demo\persistence\domain\Book.class
+com\qa\demo\persistence\repos\LibraryRepo.class
+com\qa\demo\DemoApplication.class
+com\qa\demo\rest\controllers\UserController.class
+com\qa\demo\services\UserService.class
+com\qa\demo\exceptions\BookNotFoundException.class
+com\qa\demo\exceptions\UserNotFoundException.class
+com\qa\demo\persistence\repos\LoanRepo.class
+com\qa\demo\rest\controllers\LibraryController.class
+com\qa\demo\services\LoanService.class

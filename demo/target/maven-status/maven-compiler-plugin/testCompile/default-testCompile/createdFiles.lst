@@ -1,0 +1,7 @@
+com\qa\demo\services\UserServiceUnitTests.class
+com\qa\demo\rest\LoanControllerIntegrationTest.class
+com\qa\demo\rest\UserControllerIntegrationTest.class
+com\qa\demo\services\LoanServiceUnitTest.class
+com\qa\demo\DemoApplicationTests.class
+com\qa\demo\rest\BookControllerIntegrationTest.class
+com\qa\demo\services\BookServiceUnitTest.class

@@ -1,8 +1,6 @@
 package com.qa.demo.services;
 
 import java.util.List;
-import java.util.Optional;
-//import java.util.Optional;
 import java.time.LocalDate;
 
 import org.assertj.core.api.Assertions;
@@ -58,22 +56,7 @@ public class LoanServiceUnitTest {
     }
 
     
-//     @Test
-//     void testReturnLoan(){
-//         Long libId = 1020L;
-        
-//         final Loan loan = new Loan(1L,24L, 1020L, LocalDate.of(2022,10,22), LocalDate.of(2022,10,21));
-//         Optional <Loan> optionalLoan = Optional.of(loan);
-
-//         Loan updateLoan = new Loan(1L,24L, 1020L, LocalDate.of(2022,10,22), LocalDate.now());
-        
-//         Mockito.when(this.repo.findById(libId)).thenReturn(optionalLoan);
-//         Mockito.when(this.repo.save(updateLoan)).thenReturn(updateLoan);
-
-//         Assertions.assertThat(this.service.findByLibId(libId)).isEqualTo(updateLoan);
-
-
-//    }   
+ 
 }
 
 

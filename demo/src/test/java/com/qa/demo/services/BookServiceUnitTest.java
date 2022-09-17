@@ -2,6 +2,7 @@ package com.qa.demo.services;
 
 import java.util.List;
 
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -23,16 +24,7 @@ public class BookServiceUnitTest {
     private LibraryRepo repo;
 
 
-    @Test
-    void testCreateBook(){
-        Book newBook = new Book(null, 1020304050601L, "The Happy Bunny", "Simon Green");
-        Book createdBook = new Book(1L, 1020304050601L, "The Happy Bunny", "Simon Green");
-
-        Mockito.when(this.repo.save(newBook)).thenReturn(createdBook);
-
-        Assertions.assertThat(this.service.addBook(newBook)).isEqualTo(createdBook);
-
-    }
+ 
 
     @Test
     void testGetAllBooks(){
@@ -75,11 +67,7 @@ public class BookServiceUnitTest {
         Mockito.verify(this.repo, Mockito.times(1)).findByAuthorsContaining(author);
     }
 
-    // @Test
-    // void testUpdateBook(){
-    // TO DO
-    // }
-
+ 
     @Test
     void testDeleteBook(){
         final Long id = 1L;
@@ -88,5 +76,17 @@ public class BookServiceUnitTest {
         Assertions.assertThat(this.service.removeBook(id)).isEqualTo(true);
 
         Mockito.verify(this.repo, Mockito.times(1)).existsById(id);
-    }
+ 
+   }
+
+   @Test
+   void testCreateBook(){
+       Book newBook = new Book(null, 1020304050601L, "The Happy Bunny", "Simon Green");
+       Book createdBook = new Book(1L, 1020304050601L, "The Happy Bunny", "Simon Green");
+
+       Mockito.when(this.repo.save(newBook)).thenReturn(createdBook);
+
+       Assertions.assertThat(this.service.addBook(newBook)).isEqualTo(createdBook);
+
+   }
 }
