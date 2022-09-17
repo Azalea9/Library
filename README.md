@@ -351,7 +351,37 @@ https://azalea999.atlassian.net/l/cp/7jwtbhCY
 
 --------------------------------------------------------------------------------------------------
 
-## 8. Screenshot of test results, including coverage report.
+## 8. Screenshot of test results.
+
+### Summary
+
+<img width="480" alt="image" src="https://user-images.githubusercontent.com/91089509/190870358-f2950f5a-81ab-40fd-b854-e94720285ef0.png">
+
+### System Integration Test
+
+***BookController***
+
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/91089509/190870403-f0655433-b4e1-4e33-8b3f-9e2cb657094f.png">
+
+***UserController***
+
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/91089509/190870460-ad841532-4a97-45b1-ab59-ea7ce7e4ce82.png">
+
+### Unit Test Results
+
+***BookService***
+
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/91089509/190870482-e907e108-d885-4363-8b3d-bd9b76405ea1.png">
+
+***LoanService***
+
+<img width="446" alt="image" src="https://user-images.githubusercontent.com/91089509/190870498-e2ac3759-240a-443f-8dc5-a2a4f352e832.png">
+
+***UserService***
+
+<img width="458" alt="image" src="https://user-images.githubusercontent.com/91089509/190870518-87f2896b-63aa-4b56-9e9c-4b410608f117.png">
+
+
 
 
 ## 9. 	Link to Jira Board
