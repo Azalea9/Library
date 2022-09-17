@@ -39,6 +39,7 @@ import com.qa.demo.persistence.repos.UserRepo;
 //@Sql(scripts = { "classpath:book-schema.sql",
 //		"classpath:book-data.sql" }, executionphase = ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles("test")
+
 public class UserControllerIntegrationTest {
 
 	@Autowired // inject the MockMVC object into this class
@@ -85,7 +86,6 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	@Order(4)
-	@Transactional
 	void testCreateUser() throws Exception {
 		
 		String testUserAsJSON = this.mapper.writeValueAsString(testUser);
@@ -105,7 +105,6 @@ public class UserControllerIntegrationTest {
 
     @Test
 	@Order(2)
-	@Transactional
     void GetUserByLibId() throws Exception {
 		usersInDb.add(repo.save(testUser));
         String savedBookAsJSON = this.mapper.writeValueAsString(testUser);
@@ -121,7 +120,6 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	@Order(3)
-	@Transactional
 	void testUpdateUser() throws Exception {
 		usersInDb.add(repo.save(testUser));
 
@@ -139,7 +137,6 @@ public class UserControllerIntegrationTest {
 
 	@Test
 	@Order(5)
-	@Transactional
 	void deleteById() throws Exception {
 
 		final String testUserAsJSON = this.mapper.writeValueAsString(testUserChanged);
