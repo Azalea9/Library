@@ -84,7 +84,7 @@ I expected some aspects of the challenge to be easier and other parts to be hard
  
 
 ### What didn’t go as planned?
-- [ ] Integration Testing
+- [ ] Integration Testing and unit testing and being able to achieve the 80% test coverage
 - [ ] Environment issues with getting IDE working the right version of Java 
 
 
@@ -382,6 +382,11 @@ https://azalea999.atlassian.net/l/cp/7jwtbhCY
 <img width="458" alt="image" src="https://user-images.githubusercontent.com/91089509/190870518-87f2896b-63aa-4b56-9e9c-4b410608f117.png">
 
 
+### Test Coverage report
+
+After implementing the unit and system integration tests, the test coverage report did show gaps in unit and integration tests. If I had more time, I would have set up a more robust test environment, where I was able to prepopulate the data for the integration tests, this would have made executing the tests easier.  I would also have done more unit tests for CRUD as well as included validation tests.
+
+<img width="479" alt="image" src="https://user-images.githubusercontent.com/91089509/190987337-3efdd54a-59b5-4cbc-af4c-d5f29b84e145.png">
 
 
 ## 9. 	Link to Jira Board
