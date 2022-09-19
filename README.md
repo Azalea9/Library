@@ -291,7 +291,7 @@ https://azalea999.atlassian.net/l/cp/7jwtbhCY
 
 ### Loans
 
-***1. Create a Book Loan ***
+***1. Create a Book Loan***
 
 ***POSTMAN***
 
